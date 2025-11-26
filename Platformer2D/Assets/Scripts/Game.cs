@@ -9,7 +9,8 @@ public enum EGameState : byte
     Gameplay,
     FadeOut,
     FadeHold,
-    FadeIn
+    FadeIn,
+    GameWon
 };
 
 public class Game : MonoBehaviour
@@ -38,6 +39,8 @@ public class Game : MonoBehaviour
     private float fadeHoldTimer = 0.0f;
     private EGameState state = EGameState.Unknown;
     private bool isGameOver = false;
+    private bool isGameWon = false;
+    private bool endLevel = false;
 
     public GameSettings Settings
     {
@@ -92,6 +95,11 @@ public class Game : MonoBehaviour
     public bool IsGameOver
     {
         get { return isGameOver; }
+    }
+
+    public bool IsGameWon
+    {
+        get { return isGameWon; }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -156,7 +164,14 @@ public class Game : MonoBehaviour
             if (fadeInOutTimer <= 0.0f)
             {
                 fadeInOutTimer = 0.0f;
-                SetState(EGameState.FadeHold);
+                if (endLevel)
+                {
+                    SetState(EGameState.GameWon);
+                }
+                else
+                {
+                    SetState(EGameState.FadeHold);
+                }
             }
         }
         else if (state == EGameState.FadeHold)
@@ -247,6 +262,13 @@ public class Game : MonoBehaviour
     public void HandleCheckpoint(Checkpoint checkpoint)
     {
         currentCheckpoint = checkpoint;
+    }
+
+    public void HandleGameWon()
+    {
+        PauseActors();
+        SetState(EGameState.FadeOut);
+        endLevel = true;
     }
 
     public void MarioHasDied(bool spawnDeadMario)
@@ -396,6 +418,10 @@ public class Game : MonoBehaviour
 
                 // Set the fade out timer
                 fadeInOutTimer = settings.BlackOverlayFadeInOutDuration;
+            }
+            else if (state == EGameState.GameWon)
+            {
+                isGameWon = true;
             }
         }
     }

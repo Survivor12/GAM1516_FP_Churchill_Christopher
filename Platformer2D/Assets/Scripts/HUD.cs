@@ -8,6 +8,7 @@ public class HUD : MonoBehaviour
     public TMPro.TMP_Text timerText;
     public Image[] arrowImages;
     public Image gameOverImage;
+    public Image gameWonImage;
     public Image blackOverlay;
 
     private float flashTimer = 0.1f;
@@ -17,6 +18,7 @@ public class HUD : MonoBehaviour
     void Start()
     {
         gameOverImage.gameObject.SetActive(false);
+        gameWonImage.gameObject.SetActive(false);
         blackOverlay.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
     }
 
@@ -64,6 +66,14 @@ public class HUD : MonoBehaviour
             if(gameOverImage.gameObject.activeSelf == false)
             {
                 gameOverImage.gameObject.SetActive(true);
+            }
+        }
+
+        if (Game.Instance.IsGameWon)
+        {
+            if(gameWonImage.gameObject.activeSelf == false)
+            {
+                gameWonImage.gameObject.SetActive(true);
             }
         }
 

@@ -389,6 +389,10 @@ public class Mario : MonoBehaviour
             {
                 marioState.Coins++;
             }
+            else if (pickupType == EPickupType.QuestionMarkBall)
+            {
+                Game.Instance.HandleGameWon();
+            }
 
             // Destroy the pickup gameObject
             Destroy(collision.gameObject);
@@ -396,6 +400,10 @@ public class Mario : MonoBehaviour
         else if (collision.gameObject.CompareTag("Door"))
         {
             currentDoor = collision.gameObject.GetComponent<Door>();
+        }
+        else if (collision.gameObject.CompareTag("Lava"))
+        {
+            HandleDamage(true);
         }
     }
 
