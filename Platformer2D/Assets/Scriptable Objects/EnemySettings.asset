@@ -17,3 +17,9 @@ MonoBehaviour:
   PiranhaPlantActiveDuration: 2.5
   PiranhaPlantHiddenDurationMin: 2
   PiranhaPlantHiddenDurationMax: 4
+  GoombaSpeed: 3
+  GoombaSquishedDuration: 0.6
+  PodobooHiddenDurationMin: 2
+  PodobooHiddenDurationMax: 4
+  PodobooGravityScale: 1
+  PodobooImpulse: 21
