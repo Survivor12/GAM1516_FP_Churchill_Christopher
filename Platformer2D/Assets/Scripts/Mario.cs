@@ -373,6 +373,14 @@ public class Mario : MonoBehaviour
                     HandleDamage();
                 }
             }
+            else if (enemyType == EEnemyType.Podoboo)
+            {
+                Podoboo podoboo = collision.gameObject.GetComponent<Podoboo>();
+                if (podoboo.State != EPodobooState.Hiding)
+                {
+                    HandleDamage();
+                }
+            }
         }
         else if (collision.gameObject.CompareTag("Pickup"))
         {

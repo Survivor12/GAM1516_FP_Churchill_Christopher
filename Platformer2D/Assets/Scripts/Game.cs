@@ -25,6 +25,7 @@ public class Game : MonoBehaviour
     public GameObject mushroomPickupPrefab;
     public GameObject itemBoxCoinPrefab;
     public GameObject breakableBlockBitPrefab;
+    public GameObject splashPrefab;
 
     private GameObject deadMario = null;
 
@@ -341,6 +342,14 @@ public class Game : MonoBehaviour
             {
                 deadMario = Instantiate(deadMarioPrefab, new Vector3(location.x, location.y, -1.5f), Quaternion.identity);
             }
+        }
+    }
+
+    public void SpawnSplash(Vector2 location)
+    {
+        if (splashPrefab != null)
+        {
+            Instantiate(splashPrefab, new Vector3(location.x, location.y, 1.0f), Quaternion.identity);
         }
     }
 

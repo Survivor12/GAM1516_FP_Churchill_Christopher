@@ -13,4 +13,10 @@ public class EnemySettings : ScriptableObject
     [Header("Goomba")]
     public float GoombaSpeed = 3.0f;
     public float GoombaSquishedDuration = 0.6f;
+
+    [Header("Podoboo")]
+    public float PodobooHiddenDurationMin = 2.0f;
+    public float PodobooHiddenDurationMax = 4.0f;
+    public float PodobooGravityScale = 1.0f;
+    public float PodobooImpulse = 21.0f;
 }
