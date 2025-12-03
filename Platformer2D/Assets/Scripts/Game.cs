@@ -23,6 +23,7 @@ public class Game : MonoBehaviour
     public GameObject marioGameObject;
     public GameObject deadMarioPrefab;
     public GameObject mushroomPickupPrefab;
+    public GameObject OneUpPickupPrefab;
     public GameObject itemBoxCoinPrefab;
     public GameObject breakableBlockBitPrefab;
     public GameObject splashPrefab;
@@ -304,6 +305,16 @@ public class Game : MonoBehaviour
         }
     }
 
+    public void IncreaseLives()
+    {
+        MarioState marioState = GetMarioState;
+
+        if (marioState != null)
+        {
+            marioState.Lives++;
+        }
+    }
+
     public void SpawnMushroomPickup(Vector2 location)
     {
         if (mushroomPickupPrefab != null)
@@ -311,6 +322,15 @@ public class Game : MonoBehaviour
             GameObject mushroomObject = Instantiate(mushroomPickupPrefab, new Vector3(location.x, location.y, 1.0f), Quaternion.identity);
             MushroomPickup mushroomPickup = mushroomObject.GetComponent<MushroomPickup>();
             mushroomPickup.Spawn();
+        }
+    }
+    public void SpawnOneUpPickup(Vector2 location)
+    {
+        if (OneUpPickupPrefab != null)
+        {
+            GameObject OneUpObject = Instantiate(OneUpPickupPrefab, new Vector3(location.x, location.y, 1.0f), Quaternion.identity);
+            OneUpPickup OneUpPickup = OneUpObject.GetComponent<OneUpPickup>();
+            OneUpPickup.Spawn();
         }
     }
 

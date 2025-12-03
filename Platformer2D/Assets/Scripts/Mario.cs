@@ -393,6 +393,10 @@ public class Mario : MonoBehaviour
                     ApplyTransformChange(EMarioForm.Super);
                 }
             }
+            else if (pickupType == EPickupType.OneUp)
+            {
+                Game.Instance.IncreaseLives();
+            }
             else if (pickupType == EPickupType.Coin)
             {
                 marioState.Coins++;

@@ -16,6 +16,7 @@ public enum EItemBoxState : byte
 public enum EItemBoxContents : byte
 {
     Mushroom,
+    OneUp,
     Coin1,
     Coin5,
     Coin10
@@ -147,6 +148,10 @@ public class ItemBox : MonoBehaviour
         if (contents == EItemBoxContents.Mushroom)
         {
             Game.Instance.SpawnMushroomPickup(location);
+        }
+        else if (contents == EItemBoxContents.OneUp)
+        {
+            Game.Instance.SpawnOneUpPickup(location);
         }
     }
 

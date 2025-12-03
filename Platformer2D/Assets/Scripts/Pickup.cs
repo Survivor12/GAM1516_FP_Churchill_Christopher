@@ -4,6 +4,7 @@ public enum EPickupType : byte
 {
     Unknown,
     Mushroom,
+    OneUp,
     Coin,
     QuestionMarkBall
 }
