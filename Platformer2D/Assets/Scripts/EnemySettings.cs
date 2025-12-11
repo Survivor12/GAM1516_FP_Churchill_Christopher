@@ -29,5 +29,6 @@ public class EnemySettings : ScriptableObject
 
     [Header("Thwomp")]
     public float ThwompFallSpeed = -10.0f;
-    public float holdTimer = 2.0f;
+    public float ThwompHoldTimer = 2.0f;
+    public float ThwompTriggerDistance = 1.5f;
 }

@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Thwomp (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1008969044724685688, guid: 92acfab577bd48f4ebcbec7f1b28178d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5255643801652023361, guid: 92acfab577bd48f4ebcbec7f1b28178d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 244

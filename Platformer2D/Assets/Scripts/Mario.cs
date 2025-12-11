@@ -382,13 +382,13 @@ public class Mario : MonoBehaviour
             }
             else if (enemyType == EEnemyType.Boo)
             {
-                Boo boo = collision.gameObject.GetComponent<Boo>();
-                if (boo.State != EBooState.Sleeping)
-                {
-                    HandleDamage();
-                }
+                HandleDamage();
             }
             else if (enemyType == EEnemyType.RotoDisc)
+            {
+                HandleDamage();
+            }
+            else if (enemyType == EEnemyType.Thwomp)
             {
                 HandleDamage();
             }

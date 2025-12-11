@@ -25,7 +25,7 @@ public class Thwomp : Enemy
         startingLocation = transform.position;
 
         // Set the enemy type
-        enemyType = EEnemyType.Goomba;
+        enemyType = EEnemyType.Thwomp;
 
         SetState(EThwompState.Waiting);
     }
@@ -33,7 +33,16 @@ public class Thwomp : Enemy
     // Update is called once per frame
     void Update()
     {
-        if (state == EThwompState.Falling)
+        if (state == EThwompState.Waiting)
+        {
+            float marioLocationX = Game.Instance.MarioGameObject.transform.position.x;
+
+            if (marioLocationX > transform.position.x - settings.ThwompTriggerDistance && marioLocationX < transform.position.x + settings.ThwompTriggerDistance)
+            {
+                SetState(EThwompState.Falling);
+            }
+        }
+        else if (state == EThwompState.Falling)
         {
             float locationY = transform.position.y + fallSpeed * Time.deltaTime * Game.Instance.LocalTimeScale;
             if (locationY <= bottomY)
@@ -84,39 +93,12 @@ public class Thwomp : Enemy
             else if (state == EThwompState.Holding)
             {
                 fallSpeed = 0.0f;
-                holdTimer = settings.holdTimer;
+                holdTimer = settings.ThwompHoldTimer;
                 Game.Instance.GetMarioCamera.ApplyCameraShake();
             }
             else if (state == EThwompState.Ascending)
             {
                 fallSpeed = -settings.ThwompFallSpeed / 2.0f;
-            }
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Is the Goomba colliding with the Mario GameObject?
-        if (collision.gameObject.CompareTag("Mario"))
-        {
-            // Get the Mario component from the GameObject
-            Mario mario = collision.gameObject.GetComponent<Mario>();
-
-            // Check if there's a contact object, in the contacts array
-            if (collision.contacts.Length > 0)
-            {
-                mario.HandleDamage();
-            }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Mario"))
-        {
-            if (state == EThwompState.Waiting)
-            {
-                SetState(EThwompState.Falling);
             }
         }
     }
