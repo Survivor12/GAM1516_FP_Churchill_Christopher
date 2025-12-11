@@ -381,6 +381,14 @@ public class Mario : MonoBehaviour
                     HandleDamage();
                 }
             }
+            else if (enemyType == EEnemyType.Boo)
+            {
+                Boo boo = collision.gameObject.GetComponent<Boo>();
+                if (boo.State != EBooState.Sleeping)
+                {
+                    HandleDamage();
+                }
+            }
         }
         else if (collision.gameObject.CompareTag("Pickup"))
         {

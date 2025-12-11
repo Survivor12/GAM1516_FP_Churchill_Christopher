@@ -5,7 +5,8 @@ public enum EEnemyType : byte
     Unknown,
     PiranhaPlant,
     Goomba,
-    Podoboo
+    Podoboo,
+    Boo
 
         //TODO: Add additional EnemyType enumerators here
 }

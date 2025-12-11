@@ -19,4 +19,7 @@ public class EnemySettings : ScriptableObject
     public float PodobooHiddenDurationMax = 4.0f;
     public float PodobooGravityScale = 1.0f;
     public float PodobooImpulse = 21.0f;
+
+    [Header("Boo")]
+    public float BooSpeed = 2.0f;
 }
