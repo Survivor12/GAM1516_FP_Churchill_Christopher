@@ -1,7 +1,5 @@
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public enum EItemBoxState : byte
 {
