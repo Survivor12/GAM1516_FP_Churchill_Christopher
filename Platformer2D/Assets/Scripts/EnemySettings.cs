@@ -22,6 +22,7 @@ public class EnemySettings : ScriptableObject
 
     [Header("Boo")]
     public float BooSpeed = 2.0f;
+    public float WakeUpDistance = 15.0f;
 
     [Header("RotoDisc")]
     public float RotoDiscOrbitSpeed = 100f;

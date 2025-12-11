@@ -13,6 +13,7 @@ public class Boo : Enemy
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private float wakeUpDistance;
 
     private EBooState state = EBooState.Unknown;
 
@@ -29,6 +30,8 @@ public class Boo : Enemy
 
         enemyType = EEnemyType.Boo;
 
+        wakeUpDistance = settings.WakeUpDistance;
+
         SetState(EBooState.Sleeping);
     }
 
@@ -40,7 +43,7 @@ public class Boo : Enemy
 
         if (marioDirection < 0.0f)
         {
-            if (marioLocationX < transform.position.x)
+            if (marioLocationX < transform.position.x && marioLocationX > transform.position.x - wakeUpDistance)
             {
                 spriteRenderer.flipX = false;
                 SetState(EBooState.Chasing);
@@ -52,7 +55,7 @@ public class Boo : Enemy
         }
         else if (marioDirection > 0.0f)
         {
-            if (marioLocationX > transform.position.x)
+            if (marioLocationX > transform.position.x && marioLocationX < transform.position.x + wakeUpDistance)
             {
                 spriteRenderer.flipX = true;
                 SetState(EBooState.Chasing);

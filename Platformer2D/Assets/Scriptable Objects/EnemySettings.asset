@@ -23,3 +23,8 @@ MonoBehaviour:
   PodobooHiddenDurationMax: 4
   PodobooGravityScale: 1
   PodobooImpulse: 21
+  BooSpeed: 2
+  WakeUpDistance: 30
+  RotoDiscOrbitSpeed: 100
+  ThwompFallSpeed: -20
+  holdTimer: 2
