@@ -42,11 +42,11 @@ public class Boo : Enemy
         {
             if (marioLocationX < transform.position.x)
             {
+                spriteRenderer.flipX = false;
                 SetState(EBooState.Chasing);
             }
             else
             {
-                spriteRenderer.flipX = true;
                 SetState(EBooState.Sleeping);
             }
         }

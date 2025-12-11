@@ -22,4 +22,11 @@ public class EnemySettings : ScriptableObject
 
     [Header("Boo")]
     public float BooSpeed = 2.0f;
+
+    [Header("RotoDisc")]
+    public float RotoDiscOrbitSpeed = 100f;
+
+    [Header("Thwomp")]
+    public float ThwompFallSpeed = -10.0f;
+    public float holdTimer = 2.0f;
 }

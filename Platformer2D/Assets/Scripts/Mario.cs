@@ -389,6 +389,10 @@ public class Mario : MonoBehaviour
                     HandleDamage();
                 }
             }
+            else if (enemyType == EEnemyType.RotoDisc)
+            {
+                HandleDamage();
+            }
         }
         else if (collision.gameObject.CompareTag("Pickup"))
         {
